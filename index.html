@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florida Citrus Recipes | Fresh & Zesty</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="container top-bar__container">
+            <div class="search-compact">
+                <button><i class="fas fa-search"></i></button>
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="connect-dropdown">
+                <div class="connect-trigger">
+                    <span>CONNECT WITH US</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="dropdown-content">
+                    <div class="dropdown-section">
+                        <h5>OJ</h5>
+                     <div class="social-icons">
+                         <a href="#"><i class="fab fa-facebook-f"></i></a>
+                         <a href="#"><i class="fab fa-x-twitter"></i></a>
+                         <a href="#"><i class="fab fa-instagram"></i></a>
+                         <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                         <a href="#"><i class="fab fa-youtube"></i></a>
+                     </div>
+                    </div>
+                    <div class="dropdown-section">
+                     <h5>GRAPEFRUIT</h5>
+                     <div class="social-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                     </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <div class="container site-header__container">
+            <a href="index.html" class="site-logo">
+                <picture>
+                    <source srcset="https://www.floridacitrus.org/wp-content/uploads/2025/02/FDOC-Logo.svg"
+                        type="image/svg+xml">
+                    <img src="https://base.imgix.net/wp-content/uploads/2021/08/Florida-Citrus-Logo.png?auto=format%2Ccompress&q=10&w=200"
+                        alt="Florida Citrus Logo" class="site-logo__img">
+                </picture>
+            </a>
+            <nav class="site-nav">
+                <ul class="site-nav__list">
+                    <li class="site-nav__item"><a href="#" class="site-nav__link">ABOUT <i
+                                class="fas fa-chevron-down"></i></a></li>
+                    <li class="site-nav__item"><a href="#" class="site-nav__link">HEALTH & NUTRITION <i
+                                class="fas fa-chevron-down"></i></a></li>
+                    <li class="site-nav__item"><a href="index.html" class="site-nav__link">RECIPES</a></li>
+                    <li class="site-nav__item"><a href="#" class="site-nav__link">FAQ</a></li>
+                    <li class="site-nav__item"><a href="#" class="site-nav__link">BLOG <i
+                                class="fas fa-chevron-down"></i></a></li>
+                    <li class="site-nav__item"><a href="#" class="site-nav__link">SHOP <i
+                                class="fas fa-chevron-down"></i></a></li>
+                </ul>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-main">
+     <section class="hero__Container">
+            <div class="hero__section">
+              <div class="hero__title">Recipes</div>
+               <div class="hero__recipes-img">
+                  <img src="assets\Recipe-container.jpg" alt="hero section image"/>
+               </div>
+           </div>
+      </section>
+
+        <section class="recipes-section container">
+            <div class="controls-wrapper">
+                <div class="controls-bar">
+                    <div class="dropdown-control">
+                        <span>COURSES</span>
+                        <i class="fas fa-chevron-up"></i>
+                    </div>
+                    <div class="dropdown-control">
+                        <span>PRODUCTS</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="search-main">
+                        <input type="text" id="searchInput" placeholder="What Recipe Are You Looking For?">
+                        <button id="searchBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <div class="category-filters">
+                    <label class="filter-radio">
+                        <input type="radio" name="category" value="All" checked>
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">ALL RECIPES</span>
+                    </label>
+                    <label class="filter-radio">
+                        <input type="radio" name="category" value="Starter">
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">APPETIZER</span>
+                    </label>
+                    <label class="filter-radio">
+                        <input type="radio" name="category" value="Breakfast">
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">BREAKFAST</span>
+                    </label>
+                    <label class="filter-radio">
+                        <input type="radio" name="category" value="Dessert">
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">DESSERT</span>
+                    </label>
+                    <label class="filter-radio">
+                        <input type="radio" name="category" value="Chicken">
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">ENTREE</span>
+                    </label>
+                    <label class="filter-radio">
+                        <input type="radio" name="category" value="Side">
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">SIDE DISH</span>
+                    </label>
+                    <label class="filter-radio">
+                        <input type="radio" name="category" value="Vegetarian">
+                        <span class="radio-custom"></span>
+                        <span class="radio-label">SALAD</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="recipe-grid" id="recipeGrid">
+            </div>
+            <div class="pagination" id="pagination">
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer__curve"></div>
+        <div class="container footer__container">
+            <div class="footer__top">
+                <div class="footer__logo-col">
+                    <picture>
+                        <source srcset="https://www.floridacitrus.org/wp-content/uploads/2025/02/FDOC-Logo.svg"
+                            type="image/svg+xml">
+                        <img src="https://base.imgix.net/wp-content/uploads/2021/08/Florida-Citrus-Logo.png?auto=format%2Ccompress&q=10&w=200"
+                            alt="Florida Citrus Logo" class="footer__logo">
+                    </picture>
+                    <button class="btn-industry">FOR INDUSTRY</button>
+                </div>
+                <div class="footer__links-grid">
+                    <div class="footer__col">
+                        <h4 class="footer-h4">ABOUT</h4>
+                        <ul>
+                            <li><a class="footer-h4" href="#">Who We Are</a></li>
+                            <li><a class="footer-h4" href="#">Why Florida</a></li>
+                            <li><a class="footer-h4" href="#">Our History</a></li>
+                            <li><a class="footer-h4" href="#">Meet the Growers</a></li>
+                            <li><a class="footer-h4" href="#">Visit a Grove</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <h4 class="footer-h4">HEALTH & NUTRITION</h4>
+                        <ul>
+                            <li><a href="#">Orange Juice</a></li>
+                            <li><a href="#">Oranges</a></li>
+                            <li><a href="#">Grapefruit Juice</a></li>
+                            <li><a href="#">Grapefruit</a></li>
+                            <li><a href="#">Tangerines & Mandarines</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer__col">
+                        <h4 class="footer-h4">BLOG</h4>
+                        <ul>
+                            <li><a class="footer-h4" href="#">Health</a></li>
+                            <li><a class="footer-h4" href="#">Lifestyle</a></li>
+                            <li><a class="footer-h4" href="#">Lifestyle</a></li>
+                            <li><a class="footer-h4" href="#">Grower Stories</a></li>
+                            <li><a class="footer-h4" href="#">Tips</a></li>
+                            <li><a class="footer-h4"  href="#">Cooking</a></li>
+                        </ul>
+                    </div> 
+                    <div class="footer__col">
+                        <h4 class="footer-h4">SHOP</h4>
+                        <ul>
+                            <li><a class="footer-h4" href="#">Where to Buy</a></li>
+                            <li><a class="footer-h4" href="#">Citrus Gifts</a></li>
+                        </ul>
+                        <h4 class="mt-md footer-h4">RECIPES</h4><br>
+                        <h4 class="mt-md footer-h4">FAQ</h4>
+                    </div>
+                    <div class="footer__col">
+                        <h4>CONNECT WITH OJ</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-x-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                        <h4 class="mt-md">CONNECT WITH GRAPEFRUIT</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="footer__info">
+                    <p>&copy; 2026 Florida Department of Citrus</p>
+                    <p><i class="fas fa-map-marker-alt"></i> P.O. Box 9010 Bartow, FL 33831-9010 US</p>
+                    <p><i class="fas fa-phone"></i> 863-537-3999</p>
+                    <p>Web Design by <a href="#" style="color: inherit; font-weight: bold;">Avenue Z</a></p>
+                </div>
+                <div class="footer__legal">
+                    <a href="#">Terms and Conditions</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Open Government</a>
+                </div>
+                <div class="footer__extra">
+                    <a href="#">Accessibility</a>
+                    <a href="#">Inspector General</a>
+                    <a href="#">Non-Discrimination Statement</a>
+                </div>
+                <div class="footer__eeo">
+                    <a href="#">EEO Agency</a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
+    </footer>
+
+
+    </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
