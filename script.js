@@ -7,8 +7,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const navList = document.querySelector('.site-nav__list');
     if (menuToggle && navList) {
         menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
+            const isOpen = navList.classList.toggle('active');
             menuToggle.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!navList.contains(e.target) && !menuToggle.contains(e.target)) {
+                if (navList.classList.contains('active')) {
+                    navList.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+
+        // Close mobile menu when a nav link is clicked (prevents overlap after navigation)
+        navList.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navList.classList.contains('active')) {
+                    navList.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+            });
         });
     }
 
