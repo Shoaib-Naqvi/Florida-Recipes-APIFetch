@@ -546,22 +546,29 @@ ul {
 .recipe-card__see-recipe {
     background-color: #c7e5f0;
     color: #1a3c31;
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    height: 0;
+    height: 60%;            
+    border: none;
+    cursor: pointer;
+    clip-path: ellipse(160% 60% at 50% 100%);
     overflow: hidden;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     font-weight: 800;
-    font-size: 13px;
+    padding-top: 2rem;
+    font-size: 18px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     transition: height 0.3s ease;
 }
 
 .recipe-card:hover .recipe-card__see-recipe {
-    height: 50px;
-    border-radius: 0 0 40px 40px;
+  display: flex;
+  border-radius: 0 0 40px 40px;
 }
 
 /* Footer */
@@ -877,6 +884,7 @@ ul {
 
 .recipe-stats-grid {
     max-width: 100%;
+    width: 1000px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 5px;
@@ -1262,7 +1270,7 @@ ul {
         gap: 10px;
     }
     .hero__recipes-img {
-     width: 50%; 
+     width: 50%;
     }
 }
 @media (max-width: 420px) {

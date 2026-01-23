@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Close mobile menu when a nav link is clicked (prevents overlap after navigation)
         navList.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 if (navList.classList.contains('active')) {
