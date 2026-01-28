@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     const isHomePage = document.getElementById('recipeGrid');
     const isDetailPage = document.getElementById('recipeDetail');
 
@@ -70,25 +70,41 @@ function initHomePage() {
         });
     });
 
-    const coursesDropdown = document.querySelector('.dropdown-control');
+    const productRadios = document.querySelectorAll('input[name="productCategory"]');
+    productRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            filterByProduct(e.target.value);
+        });
+    });
+
+    const dropdownControls = document.querySelectorAll('.dropdown-control');
     const categoryFilters = document.querySelector('.category-filters');
+    const productFilters = document.querySelector('.product-filters');
 
-    if (coursesDropdown && categoryFilters) {
-        const coursesIcon = coursesDropdown.querySelector('i');
-        coursesDropdown.addEventListener('click', () => {
-            categoryFilters.classList.toggle('active');
+    if (dropdownControls.length) {
+        dropdownControls.forEach(control => {
+            const label = control.querySelector('span') ? control.querySelector('span').textContent.trim().toLowerCase() : '';
+            const icon = control.querySelector('i');
 
-            if (categoryFilters.classList.contains('active')) {
-                if (coursesIcon) {
-                    coursesIcon.classList.remove('fa-chevron-up');
-                    coursesIcon.classList.add('fa-chevron-down');
+            control.addEventListener('click', () => {
+                if (label === 'courses' && categoryFilters) {
+                    categoryFilters.classList.toggle('active');
+                    if (productFilters) productFilters.classList.remove('active');
+                    if (icon) {
+                        icon.classList.toggle('fa-chevron-up');
+                        icon.classList.toggle('fa-chevron-down');
+                    }
                 }
-            } else {
-                if (coursesIcon) {
-                    coursesIcon.classList.remove('fa-chevron-down');
-                    coursesIcon.classList.add('fa-chevron-up');
+
+                if (label === 'products' && productFilters) {
+                    productFilters.classList.toggle('active');
+                    if (categoryFilters) categoryFilters.classList.remove('active');
+                    if (icon) {
+                        icon.classList.toggle('fa-chevron-up');
+                        icon.classList.toggle('fa-chevron-down');
+                    }
                 }
-            }
+            });
         });
     }
 }
@@ -127,6 +143,33 @@ async function filterByCategory(category) {
     } catch (error) {
         console.error("Error fetching category:", error);
         recipeGrid.innerHTML = '<p class="error-msg">Failed to load category.</p>';
+    }
+}
+
+async function filterByProduct(product) {
+    const recipeGrid = document.getElementById('recipeGrid');
+    if (!recipeGrid) return;
+
+    if (product === "All" || product === "") {
+        fetchRecipes('');
+        return;
+    }
+
+    recipeGrid.innerHTML = `<div class="loading-msg">Loading ${product} recipes...</div>`;
+
+    try {
+        let response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${encodeURIComponent(product)}`);
+        let data = await response.json();
+
+        if (!data.meals) {
+            response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(product)}`);
+            data = await response.json();
+        }
+
+        displayRecipes(data.meals);
+    } catch (error) {
+        console.error("Error fetching product category:", error);
+        recipeGrid.innerHTML = '<p class="error-msg">Failed to load product category.</p>';
     }
 }
 
@@ -222,5 +265,5 @@ function renderRecipeDetail(meal) {
         `).join('');
     }
     const nutritionFacts = document.getElementById('nutritionFacts');
-    if (nutritionFacts) nutritionFacts.style.display = 'none'; 
+    if (nutritionFacts) nutritionFacts.style.display = 'absolute';
 }
